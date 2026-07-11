@@ -66,7 +66,7 @@ public class LinkedList<T>{
     {
         if(head == null)
         {
-            throw new IndexOutOfBoundsException("Deletion attemoted at empty list");
+            throw new IndexOutOfBoundsException("Deletion attempted at empty list");
         }
         if(pos == 0)
         {
