@@ -1,12 +1,12 @@
 package Linkedlist;
 
-public class LinkedList {
+public class LinkedList<T>{
     Node head;
     class Node
     {
-        int data;
+        T data;
         Node next;
-        Node(int val)
+        Node(T val)
         {
             data = val;
             next = null;
@@ -17,7 +17,7 @@ public class LinkedList {
         head = null;
     }
 
-    public void insertAtBeginning(int val)
+    public void insertAtBeginning(T val)
     {
         Node newNode = new Node(val);
         if(head == null) //when list is empty
@@ -41,7 +41,7 @@ public class LinkedList {
         }
     }
 
-    public void insertAtPos(int pos, int val)
+    public void insertAtPos(int pos, T val)
     {
         Node newNode = new Node(val);
         if(pos == 0)
@@ -83,7 +83,7 @@ public class LinkedList {
         prev.next = temp.next;
 
     }
-    public int get(int pos)
+    public T get(int pos)
     {
         if(head == null)
         {
@@ -100,7 +100,7 @@ public class LinkedList {
         }
         return temp.data;
     }
-    public void update(int pos,int val)
+    public void update(int pos,T val)
     {
         if(head == null)
         {
@@ -117,24 +117,6 @@ public class LinkedList {
         }
         temp.data = val;
     }
-    public int search(int val)
-    {
-        if(head == null)
-        {
-            throw new IndexOutOfBoundsException("List is Empty");
-        }
-        Node temp = head;
-        int index = 0;
-        while(temp!=null)
-        {
-            if(temp.data == val)
-            {
-                return index;
-            }
-            index++;
-            temp = temp.next;
-        }
-        return -1;
-    }
+   
     
 }
