@@ -44,7 +44,7 @@ public class LinkedList<T>{
     public void insertAtPos(int pos, T val)
     {
         Node newNode = new Node(val);
-        if(pos == 0)
+        if(pos == 0)// inserting at first position 
         {
             insertAtBeginning(val);
             return;
