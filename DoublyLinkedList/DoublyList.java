@@ -17,8 +17,8 @@ public class DoublyList {
     }
     DoublyList()
     {
-        Node head = null;
-        Node tail = null;        
+        head = null;
+        tail = null;        
     }
     public void insertAtBegining(int val)
     {
@@ -38,7 +38,7 @@ public class DoublyList {
     public void insertAtpos(int pos, int val)
     {
         Node newNode = new Node(val);
-        if(head == null)
+        if(pos == 0)
         {
             insertAtBegining(val);
             return;
@@ -49,9 +49,39 @@ public class DoublyList {
           temp = temp.next;  
         }
         newNode.next = temp.next;
-        temp.next.prev = newNode;
+        if(temp == tail)
+            tail = newNode;
+        else
+            temp.next.prev = newNode;
         newNode.prev = temp;
         temp.next = newNode;
+    }
+    public void deleteAtpos(int pos)
+    {
+        if(pos == 0)
+        {
+            head = head.next;
+            head.prev = null;
+            return;
+        }
+        Node prevNode = null;
+        Node cur = head;
+        for(int i =1;i<=pos;i++)
+        {
+            prevNode = cur;
+            cur = cur.next;
+        }
+        if(cur == tail)
+        {
+            tail = prevNode;
+            prevNode.next = null;
+            cur.prev = null;
+            return;
+        }
+        prevNode.next = cur.next;
+        cur.next.prev = prevNode;
+        cur.prev = null;
+        cur.next = null;
     }
     public void display()
     {
